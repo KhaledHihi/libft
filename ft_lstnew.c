@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 10:59:03 by khhihi            #+#    #+#             */
-/*   Updated: 2024/10/23 21:54:30 by khhihi           ###   ########.fr       */
+/*   Created: 2024/10/27 18:35:12 by khhihi            #+#    #+#             */
+/*   Updated: 2024/10/28 10:51:07 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstnew(void *content)
 {
-	int		i;
-	int		j;
-	char	*arr[3];
+	t_list	*p;
 
-	arr[1] = (char *)s1;
-	arr[2] = (char *)s2;
-	i = 0;
-	j = 0;
-	arr[0] = (char *)malloc(sizeof(char)
-			* (ft_strlen(arr[1]) + ft_strlen(arr[2])) + 1);
-	if (!arr[0])
+	p = malloc(sizeof(t_list));
+	if (!p)
 		return (NULL);
-	while (arr[1][i])
-	{
-		arr[0][i] = arr[1][i];
-		i++;
-	}
-	while (arr[2][j])
-		arr[0][i++] = arr[2][j++];
-	arr[0][i] = '\0';
-	return (arr[0]);
+	p->content = content;
+	p->next = NULL;
+	return (p);
 }
