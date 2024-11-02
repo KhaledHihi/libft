@@ -6,13 +6,13 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:59:40 by khhihi            #+#    #+#             */
-/*   Updated: 2024/10/23 09:49:52 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/02 12:58:11 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int		i;
 	char	*p;

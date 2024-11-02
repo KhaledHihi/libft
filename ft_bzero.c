@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:30:00 by khhihi            #+#    #+#             */
-/*   Updated: 2024/10/22 10:47:00 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/01 15:56:27 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-	char	*p;
+	size_t			i;
+	unsigned char	*p;
 
 	i = 0;
-	p = (char *)s;
-	while (p[i] && i < n)
+	p = (unsigned char *)s;
+	while (0 < n)
 	{
-		p[i] = 48;
+		p[i] = 0;
+		n--;
 		i++;
 	}
 }
