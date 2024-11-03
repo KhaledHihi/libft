@@ -6,13 +6,13 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 23:09:23 by khhihi            #+#    #+#             */
-/*   Updated: 2024/10/25 16:28:21 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/03 17:54:55 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_countw(char const *s1, char c)
+static int	ft_countw(char const *s1, char c)
 {
 	int	i;
 	int	count;
@@ -31,14 +31,14 @@ int	ft_countw(char const *s1, char c)
 	return (count);
 }
 
-void	free_arr(char **p, int r)
+static void	free_arr(char **p, int r)
 {
 	while (r--)
 		free (p[r]);
 	free (p);
 }
 
-int	ft_count_char(int *start, int *i, char c, const char *s)
+static int	ft_count_char(int *start, int *i, char c, const char *s)
 {
 	int	i1;
 
@@ -50,7 +50,7 @@ int	ft_count_char(int *start, int *i, char c, const char *s)
 	return (i1);
 }
 
-char	**get_next_word(char **p, char const *s, int i, int c)
+static char	**get_next_word(char **p, char const *s, int i, int c)
 {
 	int	start;
 	int	end;

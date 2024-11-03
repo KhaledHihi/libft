@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:59:40 by khhihi            #+#    #+#             */
-/*   Updated: 2024/11/02 12:58:11 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/03 18:22:13 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ char	*ft_strchr(const char *s, int c)
 			return (p + i);
 		i++;
 	}
+	if (p[i] == (char)c)
+		return ((char *) &p[i]);
 	return (NULL);
 }

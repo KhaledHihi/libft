@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khhihi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 09:14:37 by khhihi            #+#    #+#             */
-/*   Updated: 2024/10/23 09:33:37 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/02 18:16:39 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 
 	i = 0;
 	if (len == 0)
-		return ((char *)str);
+		return (NULL);
 	while (str[i] && i < len)
 	{
 		j = 0;
