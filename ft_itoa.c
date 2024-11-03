@@ -6,13 +6,13 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 11:26:07 by khhihi            #+#    #+#             */
-/*   Updated: 2024/10/26 12:06:53 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/03 21:37:58 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_allocate(int len, long nb)
+static char	*ft_allocate(int len, long nb)
 {
 	char	*s;
 
