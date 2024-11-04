@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 23:09:23 by khhihi            #+#    #+#             */
-/*   Updated: 2024/11/03 17:54:55 by khhihi           ###   ########.fr       */
+/*   Created: 2024/11/04 10:55:58 by khhihi            #+#    #+#             */
+/*   Updated: 2024/11/04 11:36:43 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,65 +31,58 @@ static int	ft_countw(char const *s1, char c)
 	return (count);
 }
 
-static void	free_arr(char **p, int r)
+static void	*free_arr(char **p, int r)
 {
 	while (r--)
-		free (p[r]);
-	free (p);
+		free(p[r]);
+	free(p);
+	return (NULL);
 }
 
-static int	ft_count_char(int *start, int *i, char c, const char *s)
+static char	*ft_alloc_word(char const *s, char c)
 {
-	int	i1;
+	int		i;
+	char	*ptr;
 
-	i1 = *i;
-	*start = *i;
-	while (s[i1] && s[i1] != c)
-		i1++;
-	*i = i1;
-	return (i1);
-}
-
-static char	**get_next_word(char **p, char const *s, int i, int c)
-{
-	int	start;
-	int	end;
-	int	r;
-	int	j;
-
-	start = 0;
-	r = 0;
-	while (s[i])
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	ptr = malloc(sizeof(char) * (i + 1));
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (s[i] && s[i] != c)
 	{
-		end = ft_count_char(&start, &i, c, s);
-		p[r] = malloc(sizeof(char) * (end - start) + 1);
-		if (!p[r])
-		{
-			free_arr(p, r);
-			return (NULL);
-		}
-		j = 0;
-		while (start < end)
-			p[r][j++] = s[start++];
-		p[r++][j] = '\0';
-		while (s[i] == c)
-			i++;
+		ptr[i] = s[i];
+		i++;
 	}
-	p[r] = NULL;
-	return (p);
+	ptr[i] = '\0';
+	return (ptr);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		i;
-	char	**p;
+	char	**arr;
 
-	i = 0;
-	p = (char **)malloc(sizeof(char *) * (ft_countw(s, c) + 1));
-	if (!p)
+	arr = malloc(sizeof(char *) * (ft_countw(s, c) + 1));
+	if (!arr)
 		return (NULL);
-	while (s[i] == c)
-		i++;
-	p = get_next_word(p, s, i, c);
-	return (p);
+	i = 0;
+	while (*s)
+	{
+		while (*s == c)
+			s++;
+		if (*s)
+		{
+			arr[i] = ft_alloc_word(s, c);
+			if (!arr[i])
+				return (free_arr(arr, i));
+			i++;
+			while (*s && *s != c)
+				s++;
+		}
+	}
+	arr[i] = NULL;
+	return (arr);
 }

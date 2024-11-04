@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 09:14:37 by khhihi            #+#    #+#             */
-/*   Updated: 2024/11/02 18:16:39 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/04 12:22:28 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (len == 0)
-		return (NULL);
+	if (to_find[0] == 0)
+		return ((char *)str);
 	while (str[i] && i < len)
 	{
 		j = 0;

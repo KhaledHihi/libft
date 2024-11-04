@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 22:17:07 by khhihi            #+#    #+#             */
-/*   Updated: 2024/11/03 18:19:37 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/04 12:05:21 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*p;
+	unsigned char	*p;
+	size_t			i;
 
-	if (count == 0 || size == 0)
-		return (NULL);
+	i = 0;
 	p = malloc(count * size);
 	if (!p)
 		return (NULL);
-	ft_bzero(p, size * count);
+	while (i < size * count)
+	{
+		p[i] = 0;
+		i++;
+	}
 	return (p);
 }
