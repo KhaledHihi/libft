@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:55:58 by khhihi            #+#    #+#             */
-/*   Updated: 2024/11/04 11:36:43 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/07 11:40:51 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	char	**arr;
 
+	if (!s)
+		return (NULL);
 	arr = malloc(sizeof(char *) * (ft_countw(s, c) + 1));
 	if (!arr)
 		return (NULL);

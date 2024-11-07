@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 10:59:03 by khhihi            #+#    #+#             */
-/*   Updated: 2024/10/23 21:54:30 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/07 10:39:46 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,25 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
 	int		j;
-	char	*arr[3];
+	char	*r;
 
-	arr[1] = (char *)s1;
-	arr[2] = (char *)s2;
 	i = 0;
 	j = 0;
-	arr[0] = (char *)malloc(sizeof(char)
-			* (ft_strlen(arr[1]) + ft_strlen(arr[2])) + 1);
-	if (!arr[0])
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	while (arr[1][i])
+	if (s2[0] == '\0')
+		return (ft_strdup(s1));
+	r = (char *)malloc(sizeof(char)
+			* (ft_strlen(s1) + ft_strlen(s2)) + 1);
+	if (!r)
+		return (NULL);
+	while (s1[i])
 	{
-		arr[0][i] = arr[1][i];
+		r[i] = s1[i];
 		i++;
 	}
-	while (arr[2][j])
-		arr[0][i++] = arr[2][j++];
-	arr[0][i] = '\0';
-	return (arr[0]);
+	while (s2[j])
+		r[i++] = s2[j++];
+	r[i] = '\0';
+	return (r);
 }

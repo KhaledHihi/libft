@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:49:57 by khhihi            #+#    #+#             */
-/*   Updated: 2024/11/06 16:17:56 by khhihi           ###   ########.fr       */
+/*   Created: 2024/10/28 16:04:09 by khhihi            #+#    #+#             */
+/*   Updated: 2024/10/30 11:14:07 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
-{
-	int		i;
-	int		s;
-	long	r;
+#include "libft.h"
 
-	i = 0;
-	s = 1;
-	r = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*current;
+
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
 	{
-		if (str[i] == '-')
-			s *= -1;
-		i++;
+		*lst = new;
+		return ;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	current = *lst;
+	while (current->next)
 	{
-		r = r * 10 + (str[i] - 48);
-		if (r < 0)
-			return ((-s * (s == 1)));
-		i++;
+		current = current->next;
 	}
-	return (s * r);
+	current->next = new;
 }

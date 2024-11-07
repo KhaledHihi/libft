@@ -6,51 +6,37 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 21:57:58 by khhihi            #+#    #+#             */
-/*   Updated: 2024/11/03 20:59:32 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/07 11:33:28 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isset(char s1, char *set)
-{
-	int	i;
-
-	i = 0;
-	while (set[i])
-	{
-		if (s1 == set[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
 	int		i;
-	int		len;
-	int		j;
-	char	*arr[3];
+	int		start;
+	int		end;
+	char	*str;
 
-	arr[1] = (char *)s1;
-	arr[2] = (char *)set;
-	len = ft_strlen(s1);
-	i = 0;
-	j = 0;
-	if (ft_strlen(s1) == 0)
-		return (ft_strdup(""));
-	while (arr[1][i] && ft_isset(arr[1][i], arr[2]) == 1)
-		i++;
-	while (len > 0 && ft_isset(arr[1][len - 1], arr[2]) == 1)
-		len--;
-	if (len <= i)
-		return (ft_strdup(""));
-	arr[0] = malloc(sizeof(char) * (len - i + 1));
-	if (!arr[0])
+	if (!s1)
 		return (NULL);
-	while (i < len)
-		arr[0][j++] = arr[1][i++];
-	arr[0][j] = '\0';
-	return (arr[0]);
+	if (!set)
+		return (ft_strdup(s1));
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	end = ft_strlen(s1) - 1;
+	while (end >= 0 && ft_strchr(set, s1[end]))
+		end--;
+	if (start > end)
+		return (ft_strdup(""));
+	str = malloc(end - start + 2);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (start <= end)
+		str[i++] = s1[start++];
+	str[i] = '\0';
+	return (str);
 }

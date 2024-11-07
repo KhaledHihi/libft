@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:21:23 by khhihi            #+#    #+#             */
-/*   Updated: 2024/11/02 11:06:29 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/06 20:05:13 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	i = 0;
 	dl = 0;
 	sl = ft_strlen(src);
+	if (!dst && !size)
+		return (sl);
 	while (dst[dl] && dl < size)
 		dl++;
 	if (dl == size)

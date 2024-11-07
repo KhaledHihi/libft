@@ -6,7 +6,7 @@
 /*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:40:52 by khhihi            #+#    #+#             */
-/*   Updated: 2024/11/01 18:06:20 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/06 16:28:45 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	else
 		while (++i < len)
 			d[i] = s[i];
-	return (d);
+	return (dst);
 }

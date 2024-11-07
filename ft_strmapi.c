@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khhihi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: khhihi <khhihi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:31:36 by khhihi            #+#    #+#             */
-/*   Updated: 2024/10/24 13:43:19 by khhihi           ###   ########.fr       */
+/*   Updated: 2024/11/07 11:53:55 by khhihi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*str;
 
 	i = 0;
-	len = ft_strlen(s);
 	if (!s || !f)
-		return (0);
+		return (NULL);
+	len = ft_strlen(s);
 	str = malloc(sizeof(char) * len + 1);
 	if (!str)
 		return (NULL);
